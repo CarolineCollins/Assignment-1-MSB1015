@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<!-- the header contains information we will designate but only display on hover -->
+<head>
+  <title>html and JavaScript Assignment 1 Task</title>
+  <script src="js/wikidata-sdk.js"></script> <!-- This imports a piece of JavaScript -->
+  <!-- We have discussed the best placing of this line - 'best practice' -->
+</head>
+
+<!-- the next section called "body" is what we do get to see in the browser window -->
+<body>
+  <pre id="output"></pre> <!-- This defines a preformatted way of displaying text -->
+	
+
+  <script><!-- This is the beginning of a JavaScript section -->
+  
+  
+    query = "SELECT ?compound ?cas WHERE { ?compound wdt:P231 ?cas } limit 10"
+
+    fetch(
+      wdk.sparqlQuery(query)
+    ).then( response => response.json() <!-- designate an object for the query result -->
+    ).then( wdk.simplify.sparqlResults
+    ).then(
+      function (response) {
+        document.getElementById('output').innerHTML =
+          JSON.stringify(response, undefined, 2);
+      }
+    )
+  </script> <!-- This is the end of a JavaScript section -->
+</body>
+
+</html>
+
+
+
+<!-- THE WIKIDATA TEMPLATE CLIPBOARD for cutting and pasting to merge
+ This template has no DOCTYPE declaration 
+ This template needs to be used in conjunction with another 
+ template named htmljs.template.html 
+<html>
+<head>
+</head>
+
+<body>
+pasted into htmljs template between body and body
+</body>
+ What is id in HTML?
+Definition and Usage. The id attribute specifies a unique id for an HTML element 
+(the value must be unique **within the HTML document**). 
+The id attribute is most used to point to a style in a **style sheet**, 
+and by JavaScript (via the HTML DOM) to manipulate the element with the specific id. -->
