@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
-<!-- the header had information we will not see in the browser window -->
+<!-- the header contains information we will designate but only display on hover -->
 <head>
   <title>Minimal HTML+JavaScript page</title>
 </head>
 
-<!-- the next section is what we do get to see in the browser window -->
+<!-- the next section called "body" is what we do get to see in the browser window -->
 <body>
   <script>
     // here I add up two numbers

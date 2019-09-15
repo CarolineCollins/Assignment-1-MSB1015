@@ -1,19 +1,22 @@
+<!-- This template has no DOCTYPE declaration -->
+<!-- This template needs to be used in conjunction with another -->
+<!-- template named htmljs.template.html -->
 <html>
 <head>
 </head>
 
 <body>
-  <pre id="output"></pre>
-	<script src="js/wikidata-sdk.js"></script>
+  <pre id="output"></pre> <!-- This defines a preformatted way of displaying text -->
+	<script src="js/wikidata-sdk.js"></script> <!-- This imports a piece of JavaScript -->
 
-  <script>
+  <script><!-- This is the beginning of a JavaScript section -->
   
   
     query = "SELECT ?compound ?cas WHERE { ?compound wdt:P231 ?cas } limit 10"
 
     fetch(
       wdk.sparqlQuery(query)
-    ).then( response => response.json()
+    ).then( response => response.json() <!-- designate an object for the query result -->
     ).then( wdk.simplify.sparqlResults
     ).then(
       function (response) {
@@ -21,5 +24,7 @@
           JSON.stringify(response, undefined, 2);
       }
     )
-  </script>
+  </script> <!-- This is the end of a JavaScript section -->
 </body>
+<!-- What is id in HTML?
+Definition and Usage. The id attribute specifies a unique id for an HTML element (the value must be unique within the HTML document). The id attribute is most used to point to a style in a style sheet, and by JavaScript (via the HTML DOM) to manipulate the element with the specific id. -->
