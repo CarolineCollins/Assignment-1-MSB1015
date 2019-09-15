@@ -7,7 +7,7 @@
 
 <body>
   <pre id="output"></pre> <!-- This defines a preformatted way of displaying text -->
-	<script src="js/wikidata-sdk.js"></script> <!-- This imports a piece of JavaScript -->
+	<script src="js/wikidata-sdk.js"></script> <!-- This imports a piece of JavaScript from the named source, this source has a js extension , so it is a Javascript file, but where is that source found, and what does the format **/****-*** signify? -->
 
   <script><!-- This is the beginning of a JavaScript section -->
   
@@ -27,4 +27,5 @@
   </script> <!-- This is the end of a JavaScript section -->
 </body>
 <!-- What is id in HTML?
-Definition and Usage. The id attribute specifies a unique id for an HTML element (the value must be unique within the HTML document). The id attribute is most used to point to a style in a style sheet, and by JavaScript (via the HTML DOM) to manipulate the element with the specific id. -->
+Definition and Usage. The id attribute specifies a unique id for an HTML element (the value must be unique within the HTML document). The id attribute is most used to point to a style in a style sheet*, and by JavaScript (via the HTML DOM) to manipulate the element with the specific id. -->
+<!-- style sheet written in CSS, or Cascading Style Sheets, is a presentation language created to style the appearance of content—using, for example, fonts or colors . Style sheet might be internal or external. -->
