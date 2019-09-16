@@ -3,7 +3,7 @@
 <!-- the header contains information we will designate but only display on hover -->
 <head>
   <title>html and JavaScript Assignment 1 Task</title>
-  <script src="js/wikidata-sdk.js"></script> <!-- This imports a piece of JavaScript -->
+  <script src="js/wikidata-sdk.js"></script> <!-- This imports a library of wikidata software development kit -->
   <!-- We have discussed the best placing of this line - 'best practice' -->
 </head>
 
@@ -13,18 +13,22 @@
 	
 
   <script><!-- This is the beginning of a JavaScript section -->
-  
-  
+   
     query = "SELECT ?compound ?cas WHERE { ?compound wdt:P231 ?cas } limit 10"
-
+	  
+<!-- then function means next step executed when previous is done. dataflow (asynchronous) with computational steps in between -->
+<!-- note brackets are not nested but sequential, like a cascade. You could also define the functions elsewhere and then call them -->
+<!-- this code is quite hard to read -->
+<!-- function is an anonymous function -->
+	
     fetch(
-      wdk.sparqlQuery(query)
-    ).then( response => response.json() <!-- designate an object for the query result -->
-    ).then( wdk.simplify.sparqlResults
+      wdk.sparqlQuery(query)  >!-- sparqlQuery is a named function, then is used in 3 different ways -->
+    ).then( response => response.json() <!-- designate a JSON object for the query result -->
+    ).then( wdk.simplify.sparqlResults  <!-- makes a "nicer" object - you can try removing this line and see the effect -->
     ).then(
       function (response) {
         document.getElementById('output').innerHTML =
-          JSON.stringify(response, undefined, 2);
+          JSON.stringify(response, undefined, 2); <!-- turns the object into a string-->
       }
     )
   </script> <!-- This is the end of a JavaScript section -->
