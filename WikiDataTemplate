@@ -11,10 +11,6 @@
 
 <body>
   <pre id="output"></pre> 
-  <!-- This defines a preformatted way of displaying text -->
-	<script src="js/wikidata-sdk.js"></script> 
-	<!-- This imports a piece of JavaScript from the named source, this source has a js extension , 
-	so it is a Javascript file, but where is that source found, and what does the format **/****-*** signify? -->
 
   <script>
   <!-- This is the beginning of a JavaScript section -->
