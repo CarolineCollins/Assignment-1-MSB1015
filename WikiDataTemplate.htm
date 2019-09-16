@@ -1,0 +1,38 @@
+<!-- This template has no DOCTYPE declaration -->
+<!-- This template needs to be used in conjunction with another -->
+<!-- template named htmljs.template.html -->
+<html>
+<head>
+<!-- Initialize a global WBK function -->
+<script src="https://cdn.rawgit.com/maxlath/wikidata-sdk/dist/dist/wikibase-sdk.min.js"></script>
+<!-- Initialize a global wdk object using the WBK object -->
+<script src="https://cdn.rawgit.com/maxlath/wikidata-sdk/dist/dist/wikidata-sdk.min.js"></script>
+</head>
+
+<body>
+  <pre id="output"></pre> 
+
+  <script>
+  <!-- This is the beginning of a JavaScript section -->
+  
+  
+    query = "SELECT ?gene WHERE { ?gene wdt:P703 wd:Q25419. } limit 20"
+
+  
+
+    fetch(
+      wdk.sparqlQuery(query)
+    ).then( response => response.json() <!-- designate an object for the query result -->
+    ).then( wdk.simplify.sparqlResults
+    ).then(
+      function (response) {
+        document.getElementById('output').innerHTML =
+          JSON.stringify(response, undefined, 2);
+      }
+    )
+  </script>
+  <!-- This is the end of a JavaScript section -->
+</body>
+<!-- What is id in HTML?
+Definition and Usage. The id attribute specifies a unique id for an HTML element (the value must be unique within the HTML document). The id attribute is most used to point to a style in a style sheet*, and by JavaScript (via the HTML DOM) to manipulate the element with the specific id. -->
+<!-- style sheet written in CSS, or Cascading Style Sheets, is a presentation language created to style the appearance of content—using, for example, fonts or colors . Style sheet might be internal or external. -->
