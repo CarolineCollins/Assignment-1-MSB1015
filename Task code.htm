@@ -30,6 +30,7 @@
     fetch(
       wdk.sparqlQuery(query)  <!-- "sparqlQuery" is a named function in js, "then" is used in 3 different ways hereafter-->
     ).then( response => response.json() <!-- designate a JSON object for the query result -->
+    ).then( wdk.simplify.sparqlResults
     ).then(
       function (response) {
         document.getElementById('output').innerHTML =
