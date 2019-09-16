@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+	
 <!-- the header contains information we will designate but only display on hover -->
-<head>
-  <title>html and JavaScript Assignment 1 Task</title>
+<head>	
+  	<title>html and JavaScript Assignment 1 Task</title>
   <!-- Initialize a global WBK function -->
-<script src="https://cdn.rawgit.com/maxlath/wikidata-sdk/dist/dist/wikibase-sdk.min.js"></script>
+	<script src="https://cdn.rawgit.com/maxlath/wikidata-sdk/dist/dist/wikibase-sdk.min.js"></script>
 <!-- Initialize a global wdk object using the WBK object -->
-<script src="https://cdn.rawgit.com/maxlath/wikidata-sdk/dist/dist/wikidata-sdk.min.js"></script>
+	<script src="https://cdn.rawgit.com/maxlath/wikidata-sdk/dist/dist/wikidata-sdk.min.js"></script>
   <!-- This is a library of wikidata software development kit -->
   <!-- We have discussed the best placing of this line - 'best practice' -->
 </head>
@@ -21,18 +22,19 @@
     query = "SELECT ?compound ?cas WHERE { ?compound wdt:P231 ?cas } limit 10"
 	  
 <!-- then function means next step executed when previous is done. dataflow (asynchronous) with computational steps in between -->
-<!-- note series of brackets are not nested but sequential, like a cascade. You could also define the functions elsewhere and then call them -->
-<!-- this code is quite hard to read -->
-<!-- function is an anonymous function -->
+<!-- note series of brackets are not nested but sequential, like a cascade. -->
+<!-- You could also define the functions elsewhere and then call them -->
+<!-- Note: this code is quite hard to read -->
+<!-- Note: function is an anonymous function -->
 	
     fetch(
-      wdk.sparqlQuery(query)  <!-- sparqlQuery is a named function, then is used in 3 different ways -->
+      wdk.sparqlQuery(query)  <!-- "sparqlQuery" is a named function in js, "then" is used in 3 different ways hereafter-->
     ).then( response => response.json() <!-- designate a JSON object for the query result -->
     ).then( wdk.simplify.sparqlResults  <!-- makes a "nicer" object - you can try removing this line and see the effect -->
     ).then(
       function (response) {
         document.getElementById('output').innerHTML =
-          JSON.stringify(response, undefined, 2); <!-- turns the object into a string-->
+          JSON.stringify(response, undefined, 2); <!-- turns the object into a string. Note: opposite direction known as "parse"-->
       }
     )
   </script> <!-- This is the end of a JavaScript section -->
