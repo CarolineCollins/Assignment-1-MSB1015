@@ -1,5 +1,7 @@
 # Assignment-1-MSB1015
 Welcome to the repository for Assignment 1.
+Newly acquired programming skills will be used to answer the question
+"What are the 10 E.coli genes encoding for the most proteins?".
 
 The Assignment is part of the course
 Scientific Programming (codename MSB1015) on 
