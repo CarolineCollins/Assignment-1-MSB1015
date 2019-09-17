@@ -16,7 +16,18 @@
   <!-- This is the beginning of a JavaScript section -->
   
   
-    query = "SELECT ?compound ?cas WHERE { ?compound wdt:P231 ?cas } limit 10"
+    query = "SELECT ?gene WHERE{ wdt:P703 wd:Q25419.}"
+<!-- # evolving the query Modelled on the example Bodies of water that most watercourses end in (transitive).
+# no matching records
+SELECT ?gene (COUNT(?protein) AS ?count)
+WHERE
+{
+  ?gene wdt:P703 wd:Q25419. 
+  ?protein wdt:P702 ?gene.
+}
+GROUP BY ?gene
+ORDER BY DESC(?count)
+LIMIT 10 -->
 
     fetch(
       wdk.sparqlQuery(query)
