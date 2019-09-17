@@ -25,6 +25,8 @@ But I am aware that, while each individual genome contains between 4,000 and 5,5
 the total number of different genes among all of the sequenced E. coli strains (the pangenome) exceeds 16,000.
 
 To complete a reasonable assignment it will be necessary to generate WikiData links or pick another taxon.
+Update: picked taxon Mus musculus as it is a model organism and Wikidata has enough data to make an interesting query.
+Query prepared in Task code result embedded in index.htm for Wednesday 18th September Skills Training visualisation session.
 
 Submission deadline is 23 September 2019.
 
