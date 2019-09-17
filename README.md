@@ -14,6 +14,20 @@ to successfully query the WikiData database and visualise the query results.
 We are currently (15 September 2019) only in the project's first week, 
 so only a basic html, js and SPRQL framework is in place for the Task code.
 
+Update 17 September: understanding that WikiData is a work in progress and by no means a complete record.
+The taxon Enterobacteriaceae (Q380136) is connected to only a single gene by the relationship 
+"Found in taxon" (P703). Anthrax, chlamydia and other model species have several hundred each.
+The bacterial strain Helicobacter pylori 26695 (Q21065231) has 1421 genes associated in WikiData.
+https://w.wiki/8VY
+Searching WikiData for contains "coli" gives up many well-documented E Coli strains, eg. (Q24533466), 
+which could be linked into the Enterobacteriaceae (Q380136) taxon. 
+But I am aware that, while each individual genome contains between 4,000 and 5,500 genes, 
+the total number of different genes among all of the sequenced E. coli strains (the pangenome) exceeds 16,000.
+
+To complete a reasonable assignment it will be necessary to generate WikiData links or pick another taxon.
+Update: picked taxon Mus musculus as it is a model organism and Wikidata has enough data to make an interesting query.
+Query prepared in Task code result embedded in index.htm for Wednesday 18th September Skills Training visualisation session.
+
 Submission deadline is 23 September 2019.
 
 
