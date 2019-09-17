@@ -18,6 +18,7 @@ Update 17 September: understanding that WikiData is a work in progress and by no
 The taxon Enterobacteriaceae (Q380136) is connected to only a single gene by the relationship 
 "Found in taxon" (P703). Anthrax, chlamydia and other model species have several hundred each.
 The bacterial strain Helicobacter pylori 26695 (Q21065231) has 1421 genes associated in WikiData.
+https://w.wiki/8VY
 Searching WikiData for contains "coli" gives up many well-documented E Coli strains, eg. (Q24533466), 
 which could be linked into the Enterobacteriaceae (Q380136) taxon. 
 But I am aware that taxonomy of bacteria might be controversial.
