@@ -14,6 +14,16 @@ to successfully query the WikiData database and visualise the query results.
 We are currently (15 September 2019) only in the project's first week, 
 so only a basic html, js and SPRQL framework is in place for the Task code.
 
+Update 17 September: understanding that WikiData is a work in progress and by no means a complete record.
+The taxon Enterobacteriaceae (Q380136) is connected to only a single gene by the relationship 
+"Found in taxon" (P703). Anthrax, chlamydia and other model species have several hundred each.
+The bacterial strain Helicobacter pylori 26695 (Q21065231) has 1421 genes associated in WikiData.
+Searching WikiData for contains "coli" gives up many well-documented E Coli strains, eg. (Q24533466), 
+which could be linked into the Enterobacteriaceae (Q380136) taxon. 
+But I am aware that taxonomy of bacteria might be controversial.
+
+To complete a reasonable assignment it will be necessary to generate WikiData links or pick another taxon.
+
 Submission deadline is 23 September 2019.
 
 
