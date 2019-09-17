@@ -18,18 +18,10 @@
 	
 
   <script><!-- This is the beginning of a JavaScript section -->
- <!-- Task : find the top 10 or so genes in Mus musculus taxon (chosen to replace E coli in original question)-->
+<!-- Task : find the top 10 or so genes in Mus musculus taxon (chosen to replace E coli in original question)-->
 <!-- which code for the most proteins. Choose top 14 genes which code for >= 5 proteins each, beyond that 4 proteins or fewer -->
 <!-- with many genes coding for 4 proteins  -->  
-    query = "SELECT ?gene (COUNT(DISTINCT ?protein) AS ?count)
-WHERE {  ?protein wdt:P702 ?gene .
-        ?gene wdt:P31 wd:Q7187 ;
-              wdt:P703 wd:Q83310 .
-SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en". }
-} 
-GROUP BY ?gene
-ORDER BY DESC(?count)
-LIMIT 14"
+    query = "SELECT ?gene (COUNT(DISTINCT ?protein) AS ?count) WHERE {  ?protein wdt:P702 ?gene . ?gene wdt:P31 wd:Q7187 ; wdt:P703 wd:Q83310 . SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en". }} GROUP BY ?gene ORDER BY DESC(?count) LIMIT 14"
 	  
 <!-- then function means next step executed when previous is done. dataflow (asynchronous) with computational steps in between -->
 <!-- note series of brackets are not nested but sequential, like a cascade. -->
