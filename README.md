@@ -21,7 +21,8 @@ The bacterial strain Helicobacter pylori 26695 (Q21065231) has 1421 genes associ
 https://w.wiki/8VY
 Searching WikiData for contains "coli" gives up many well-documented E Coli strains, eg. (Q24533466), 
 which could be linked into the Enterobacteriaceae (Q380136) taxon. 
-But I am aware that taxonomy of bacteria might be controversial.
+But I am aware that, while each individual genome contains between 4,000 and 5,500 genes, 
+the total number of different genes among all of the sequenced E. coli strains (the pangenome) exceeds 16,000.
 
 To complete a reasonable assignment it will be necessary to generate WikiData links or pick another taxon.
 
