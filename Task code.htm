@@ -58,7 +58,7 @@
         <!--  "children": [{"Name":"Olives","Count":4319},] -->
 
 
-      var diameter = 400;
+      var diameter = 800;
       var color = d3.scaleOrdinal(d3.schemeCategory20);
 
       var bubble = d3.pack(dataset)
@@ -100,7 +100,7 @@
           });
 
       node.append("text")
-          .attr("dy", ".2em")
+          .attr("dy", ".6em")
           .style("text-anchor", "middle")
           .text(function(d) {
               return d.data.Name.substring(0, d.r / 3);
@@ -112,7 +112,7 @@
           .attr("fill", "white");
 
       node.append("text")
-          .attr("dy", "1.3em")
+          .attr("dy", "1.8em")
           .style("text-anchor", "middle")
           .text(function(d) {
               return d.data.Count;
