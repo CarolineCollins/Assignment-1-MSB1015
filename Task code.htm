@@ -52,7 +52,7 @@
         DataSTRING = JSON.stringify(response, undefined, 2);
         <!-- -->
       dataset = {};
-      dataset.children = DataJSON.map(function(item) { return { "Name": item.genes.label , "Count": item.count } });
+      dataset.children = DataJSON.map(function(item) { return { "Name": item.gene.label , "Count": item.count } });
 
 
         <!--  "children": [{"Name":"Olives","Count":4319},] -->
