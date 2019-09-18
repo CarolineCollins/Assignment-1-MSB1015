@@ -47,13 +47,18 @@
           /* JSON.stringify(response, undefined, 2); // turns the object into a string. Note: opposite direction known as "parse";*/
       
 	    html = "<table>";
+	      html += "<tr><td> Gene </td><td> Count </td></tr>"; 
 	    for(var i = 0; i < response.length; i ++) {
 	    	html += "<tr>";
 	    	html += "<td>";
-	    	dataJSON = JSON.stringify(response[i]);
+	    	dataJSON = JSON.stringify(response[i].label);
 		    html += dataJSON;
-		    html += "</tr>";
-	    	html += "</td>";
+		    html += "</td>";
+		html += "<td>";
+	    	dataJSON = JSON.stringify(response[i].count);
+		    html += dataJSON;
+		    html += "</td>";
+	    	html += "</tr>";
     	    }
 	  html += "</table>";
 	      document.getElementById('output').innerHTML = html;
