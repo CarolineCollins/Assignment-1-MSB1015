@@ -28,15 +28,9 @@
                } GROUP BY ?gene ORDER BY DESC(?count) LIMIT 14
              } AS %RESULTS WHERE {
                INCLUDE %RESULTS
-               SERVICE wikibase:label { bd:serviceParam wikibase:language '[AUTO_LANGUAGE],en'. }*
+               SERVICE wikibase:label { bd:serviceParam wikibase:language '[AUTO_LANGUAGE],en'. }
              }
             `
-	  
-<!-- then function means next step executed when previous is done. dataflow (asynchronous) with computational steps in between -->
-<!-- note series of brackets are not nested but sequential, like a cascade. -->
-<!-- You could also define the functions elsewhere and then call them -->
-<!-- Note: this code is quite hard to read -->
-<!-- Note: function is an anonymous function -->
 	
     fetch(
       wdk.sparqlQuery(query)  <!-- "sparqlQuery" is a named function in js, "then" is used in 3 different ways hereafter-->
@@ -48,7 +42,9 @@
           JSON.stringify(response, undefined, 2); <!-- turns the object into a string. Note: opposite direction known as "parse"-->
       }
     )
-  </script> <!-- This is the end of a JavaScript section -->
+  </script> 
+	<!-- This is the end of a JavaScript section -->
+	
 </body>
 
 </html>
