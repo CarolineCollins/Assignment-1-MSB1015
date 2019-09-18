@@ -1,6 +1,6 @@
 # Assignment-1-MSB1015
 Welcome to the repository for Assignment 1, where newly acquired programming skills will be used to answer the question
-"What are the 14 mouse genes encoding for the most proteins?".
+"What are the top 14 mouse genes encoding for the most proteins?".
 
 The Assignment is part of the course
 Scientific Programming (codename MSB1015) on 
@@ -26,6 +26,9 @@ Searching WikiData for contains "coli" gives up many well-documented E Coli stra
 which could be linked into the Enterobacteriaceae (Q380136) taxon. 
 But I am aware that, while each individual genome contains between 4,000 and 5,500 genes, 
 the total number of different genes among all of the sequenced E. coli strains (the pangenome) exceeds 16,000.
+
+Update: 18th September
+Successfully produced an html table to visualise the query results.
 
 Submission deadline is 23 September 2019.
 
