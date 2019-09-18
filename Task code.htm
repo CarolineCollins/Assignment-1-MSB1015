@@ -1,33 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 	
-<!-- the header contains information we will designate but only display on hover -->
 <head>	
+  <!-- the title contains information we will designate here but which only displays on hover -->
   	<title>html and JavaScript Assignment 1 Task</title>
-  <!-- Initialize a global WBK function -->
+  <!-- Initialize a global Wikibase function (Wikibase is the software behind Wikidata. ) -->
 	<script src="https://cdn.rawgit.com/maxlath/wikidata-sdk/dist/dist/wikibase-sdk.min.js"></script>
-<!-- Initialize a global wdk object using the WBK object -->
+  <!-- Initialize a global wdk Wikidata object. This is a library of wikidata software development kit -->
 	<script src="https://cdn.rawgit.com/maxlath/wikidata-sdk/dist/dist/wikidata-sdk.min.js"></script>
-  <!-- This is a library of wikidata software development kit -->
-  <!-- We have discussed the best placing of this line - 'best practice' -->
-  <!-- linking directly to the latest release of d3.js for visualisation-->
+  <!-- a link directly to the best version of d3.js for visualisation of the particular code I borrowed-->
 	<script src="https://d3js.org/d3.v4.min.js"></script>
 </head>
 
 <!-- the next section called "body" is what we do get to see in the browser window -->
 <body>
   <pre id="output"></pre>
-<!-- This defines a preformatted way of displaying text -->
-<!--  <pre id="outputRaw"></pre> -->
-<!-- This is the beginning of a JavaScript section -->
-<!-- Task : find the top 10 or so genes in Mus musculus taxon (chosen to replace E coli in original question)-->
-<!-- which code for the most proteins. Choose top 14 genes which code for >= 5 proteins each, beyond that 4 proteins or fewer -->
-<!-- with many genes coding for 4 proteins  -->  
+<!-- This defines an object "output" -->
+<!--  <pre id="outputRaw"></pre> // this commented out was used during debugging for displaying the JSON output-->
+<!-- This is the beginning of a JavaScript section --> 
   <script> 
-	  //The following query in SPARQL query language to WikiData;
-	  //proteins encoded by (P702) genes (instance of (P31) gene (Q7187)) found in taxon (P703) Mus musculus (Q83310)
-	  //in English count proteins encoded by Mus musculus genes. 
-	  //Limit to 14 highest counts.
+	  /*The following query is written in SPARQL query language to WikiData;*/
+	  /*proteins encoded by (P702) genes (instance of (P31) gene (Q7187)) found in taxon (P703) Mus musculus (Q83310)*/
+	  /*in English: count proteins encoded by Mus musculus genes. */
+	  /*Limit display of genes to those 25 with the highest protein counts.*/
 	  
     query = `SELECT ?gene ?geneLabel ?count WITH {
                SELECT ?gene (COUNT(DISTINCT ?protein) AS ?count) WHERE{
@@ -41,27 +36,22 @@
             `
 	
     fetch(
-      wdk.sparqlQuery(query)  // "sparqlQuery" is a named function in js, "then" is used in 3 different ways hereafter;
-    ).then( response => response.json() // designate a JSON object for the query result;
-    ).then( wdk.simplify.sparqlResults
+      wdk.sparqlQuery(query)  /* "sparqlQuery" is a named function in js, so now it knows what to do with the query object above*/
+    ).then( response => response.json() /* designate a JSON object for the query result;*/
+    ).then( wdk.simplify.sparqlResults  /*"then" is used in 3 different ways here, similar to pipes in R ;*/
     ).then(
  function (response) {
-      <!-- document.getElementById('output').innerHTML = \-->
-        <!-- JSON.stringify(response, undefined, 2); -->
-        DataJSON = response;
-        DataSTRING = JSON.stringify(response, undefined, 2);
-        <!-- -->
-      dataset = {};
+        DataJSON = response; /*designate two different objects, one a string the other a JSON for the query response*/
+        DataSTRING = JSON.stringify(response, undefined, 2); 
+       
+      dataset = {};          /* set up an empty object ready for the response data, pulled out of the JSON response object in line 48 */
       dataset.children = DataJSON.map(function(item) { return { "Name": item.gene.label , "Count": item.count } });
-
-
-        <!--  "children": [{"Name":"Olives","Count":4319},] -->
-
-
-      var diameter = 800;
+      
+      /*The following creates an SVG format visualisation using javascript and the d3 library*/ 
+      var diameter = 750;
       var color = d3.scaleOrdinal(d3.schemeCategory20);
 
-      var bubble = d3.pack(dataset)
+      var bubble = d3.pack(dataset)                           /*bubble visualisation*/
           .size([diameter, diameter])
           .padding(1.5);
 
@@ -71,8 +61,8 @@
           .attr("height", diameter)
           .attr("class", "bubble");
 
-      var nodes = d3.hierarchy(dataset)
-          .sum(function(d) { return d.Count; });
+      var nodes = d3.hierarchy(dataset)               /*setting bubble size according to Count size*/
+          .sum(function(d) { return d.Count; });      /*it has been designated above in line 38 that "Count" refers to the protein count*/
 
       var node = svg.selectAll(".node")
           .data(bubble(nodes).descendants())
@@ -103,13 +93,13 @@
           .attr("dy", ".6em")
           .style("text-anchor", "middle")
           .text(function(d) {
-              return d.data.Name.substring(0, d.r / 3);
+              return d.data.Name.substring(0, d.r / 3);  /*it has been designated above that "Name" refers to gene label*/
           })
           .attr("font-family", "sans-serif")
           .attr("font-size", function(d){
               return d.r/5;
           })
-          .attr("fill", "white");
+          .attr("fill", "black");
 
       node.append("text")
           .attr("dy", "1.8em")
@@ -121,7 +111,7 @@
           .attr("font-size", function(d){
               return d.r/5;
           })
-          .attr("fill", "white");	 
+          .attr("fill", "black");	 
 
       d3.select(self.frameElement)
           .style("height", diameter + "px");
@@ -132,5 +122,5 @@
 	<!-- This is the end of a JavaScript section -->
 	
 </body>
-
-</html>
+<!-- This is the end of the body section -->
+</html> <!-- This is the end of the html code -->
