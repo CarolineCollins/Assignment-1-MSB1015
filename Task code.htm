@@ -33,7 +33,7 @@
                SELECT ?gene (COUNT(DISTINCT ?protein) AS ?count) WHERE{
                  ?protein wdt:P702 ?gene . ?gene wdt:P31 wd:Q7187 ;    
                         wdt:P703 wd:Q83310 . 
-               } GROUP BY ?gene ORDER BY DESC(?count) LIMIT 14
+               } GROUP BY ?gene ORDER BY DESC(?count) LIMIT 25
              } AS %RESULTS WHERE {
                INCLUDE %RESULTS
                SERVICE wikibase:label { bd:serviceParam wikibase:language '[AUTO_LANGUAGE],en'. }
