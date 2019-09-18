@@ -48,7 +48,7 @@
       dataset.children = DataJSON.map(function(item) { return { "Name": item.gene.label , "Count": item.count } });
       
       /*The following creates an SVG format visualisation using javascript and the d3 library*/ 
-      var diameter = 700;
+      var diameter = 650;
       var color = d3.scaleOrdinal(d3.schemeCategory20);
 
       var bubble = d3.pack(dataset)                           /*bubble visualisation*/
@@ -61,8 +61,8 @@
           .attr("height", diameter)
           .attr("class", "bubble");
 
-      var nodes = d3.hierarchy(dataset)               /*setting bubble size according to Count size ?*/
-          .sum(function(d) { return d.Count; });      /*it has been designated above in line 38 that "Count" refers to the protein count*/
+      var nodes = d3.hierarchy(dataset)               
+          .sum(function(d) { return d.Count; });      
 
       var node = svg.selectAll(".node")
           .data(bubble(nodes).descendants())
