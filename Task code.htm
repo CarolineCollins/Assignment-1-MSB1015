@@ -48,7 +48,7 @@
       dataset.children = DataJSON.map(function(item) { return { "Name": item.gene.label , "Count": item.count } });
       
       /*The following creates an SVG format visualisation using javascript and the d3 library*/ 
-      var diameter = 750;
+      var diameter = 700;
       var color = d3.scaleOrdinal(d3.schemeCategory20);
 
       var bubble = d3.pack(dataset)                           /*bubble visualisation*/
@@ -120,7 +120,7 @@
     )
   </script> 
 	<!-- This is the end of a JavaScript section -->
-	
+	<h1>Top 25 Mouse Genes Encoding the most Proteins (source: WikiData)</h1>	
 </body>
 <!-- This is the end of the body section -->
 </html> <!-- This is the end of the html code -->
