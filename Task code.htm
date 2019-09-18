@@ -21,9 +21,14 @@
 <!-- which code for the most proteins. Choose top 14 genes which code for >= 5 proteins each, beyond that 4 proteins or fewer -->
 <!-- with many genes coding for 4 proteins  -->  
   <script> 
+	  //The following query in SPARQL query language to WikiData;
+	  //proteins encoded by (P702) genes (instance of (P31) gene (Q7187)) found in taxon (P703) Mus musculus (Q83310)
+	  //in English count proteins encoded by Mus musculus genes. 
+	  //Limit to 14 highest counts.
+	  
     query = `SELECT ?gene ?geneLabel ?count WITH {
                SELECT ?gene (COUNT(DISTINCT ?protein) AS ?count) WHERE{
-                 ?protein wdt:P702 ?gene . ?gene wdt:P31 wd:Q7187 ;
+                 ?protein wdt:P702 ?gene . ?gene wdt:P31 wd:Q7187 ;    
                         wdt:P703 wd:Q83310 . 
                } GROUP BY ?gene ORDER BY DESC(?count) LIMIT 14
              } AS %RESULTS WHERE {
@@ -33,14 +38,26 @@
             `
 	
     fetch(
-      wdk.sparqlQuery(query)  <!-- "sparqlQuery" is a named function in js, "then" is used in 3 different ways hereafter-->
-    ).then( response => response.json() <!-- designate a JSON object for the query result -->
+      wdk.sparqlQuery(query)  // "sparqlQuery" is a named function in js, "then" is used in 3 different ways hereafter;
+    ).then( response => response.json() // designate a JSON object for the query result;
     ).then( wdk.simplify.sparqlResults
     ).then(
       function (response) {
-        document.getElementById('output').innerHTML =
-          JSON.stringify(response, undefined, 2); <!-- turns the object into a string. Note: opposite direction known as "parse"-->
-      }
+       
+          /* JSON.stringify(response, undefined, 2); // turns the object into a string. Note: opposite direction known as "parse";*/
+      
+	    html = "<table>";
+	    for(var i = 0; i < response.length; i ++) {
+	    	html += "<tr>";
+	    	html += "<td>";
+	    	dataJSON = JSON.stringify(response[i]);
+		    html += dataJSON;
+		    html += "</tr>";
+	    	html += "</td>";
+    	    }
+	  html += "</table>";
+	      document.getElementById('output').innerHTML = html;
+      }		
     )
   </script> 
 	<!-- This is the end of a JavaScript section -->
