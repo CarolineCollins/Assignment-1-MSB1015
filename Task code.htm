@@ -61,8 +61,8 @@
           .attr("height", diameter)
           .attr("class", "bubble");
 
-      var nodes = d3.hierarchy(dataset)               /*setting bubble size according to Count size*/
-          .sum(function(d) { return d.Count; });      /*it has been designated above in line 38 that "Count" refers to the protein count*/
+      var nodes = d3.hierarchy(dataset)               /*setting bubble size according to Count size ?*/
+          .sum(function(d) { return d.data.Count; });      /*it has been designated above in line 38 that "Count" refers to the protein count*/
 
       var node = svg.selectAll(".node")
           .data(bubble(nodes).descendants())
@@ -78,7 +78,7 @@
 
       node.append("title")
           .text(function(d) {
-              return d.Name + ": " + d.Count;
+              return d.data.Name + ": " + d.data.Count;
           });
 
       node.append("circle")
@@ -97,7 +97,7 @@
           })
           .attr("font-family", "sans-serif")
           .attr("font-size", function(d){
-              return d.r/5;
+              return d.r/4;
           })
           .attr("fill", "black");
 
@@ -109,7 +109,7 @@
           })
           .attr("font-family",  "Gill Sans", "Gill Sans MT")
           .attr("font-size", function(d){
-              return d.r/5;
+              return d.r/4;
           })
           .attr("fill", "black");	 
 
@@ -120,7 +120,7 @@
     )
   </script> 
 	<!-- This is the end of a JavaScript section -->
-	<h1>Top 25 Mouse Genes Encoding the most Proteins (source: WikiData)</h1>	
+	<h2>Top 25 Mouse Genes Encoding the most Proteins (source: WikiData)</h2>	
 </body>
 <!-- This is the end of the body section -->
 </html> <!-- This is the end of the html code -->
