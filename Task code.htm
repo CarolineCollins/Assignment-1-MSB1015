@@ -122,10 +122,18 @@
               return d.r/5;
           })
           .attr("fill", "white");
+      /*add title to visualisation*/
+	svg.append("text")
+        .attr("x", (width / 2))             
+        .attr("y", 0 - (margin.top / 2))
+        .attr("text-anchor", "middle")  
+        .style("font-size", "16px") 
+        .style("text-decoration", "underline")  
+        .text("Value vs Date Graph");	 
 
       d3.select(self.frameElement)
           .style("height", diameter + "px");
-      /*visualisation*/
+      
       }		
     )
   </script> 
