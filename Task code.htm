@@ -46,7 +46,7 @@
       function (response) {
        
           /* JSON.stringify(response, undefined, 2); // turns the object into a string. Note: opposite direction known as "parse";*/
-      
+      /* create an html table using a for loop as per lecture example*/
 	    html = "<table>";
 	      html += "<tr><td> Gene </td><td> No. of Proteins Encoded </td></tr>"; 
 	    for(var i = 0; i < response.length; i ++) {
@@ -64,6 +64,7 @@
 	  html += "</table>";
 	      document.getElementById('output').innerHTML = html;
 	      /*document.getElementById('outputRaw').innerHTML = JSON.stringify(response, undefined, 2);*/
+      /*visualisation*/
       }		
     )
   </script> 
