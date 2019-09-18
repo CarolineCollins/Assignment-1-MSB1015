@@ -62,7 +62,7 @@
           .attr("class", "bubble");
 
       var nodes = d3.hierarchy(dataset)               /*setting bubble size according to Count size ?*/
-          .sum(function(d) { return d.data.Count; });      /*it has been designated above in line 38 that "Count" refers to the protein count*/
+          .sum(function(d) { return d.Count; });      /*it has been designated above in line 38 that "Count" refers to the protein count*/
 
       var node = svg.selectAll(".node")
           .data(bubble(nodes).descendants())
