@@ -121,15 +121,7 @@
           .attr("font-size", function(d){
               return d.r/5;
           })
-          .attr("fill", "white");
-      /*add title to visualisation*/
-	svg.append("text")
-   	.attr('x', width / 2 + margin)
-    	.attr('y', 40)
-        .attr("text-anchor", "middle")  
-        .style("font-size", "16px") 
-        .style("text-decoration", "underline")  
-        .text("Mouse Genes with number of proteins encoded");	 
+          .attr("fill", "white");	 
 
       d3.select(self.frameElement)
           .style("height", diameter + "px");
